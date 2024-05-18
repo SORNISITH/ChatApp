@@ -1,0 +1,299 @@
+:root {
+}
+
+* {
+  box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  background-color: rgb(218, 214, 214);
+}
+
+img {
+  cursor: pointer;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  font-family: Neutrif, Montserrat, sans-serif;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
+}
+.nz {
+  background-color: rgb(61, 135, 247);
+  cursor: pointer;
+  user-select: none;
+  padding: 5px;
+  width: 800px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 10px;
+  top: 8%;
+}
+.nz h1 {
+  font-size: 20px;
+  color: white;
+}
+.nz img {
+  width: 45px;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: Neutrif, Montserrat, sans-serif;
+}
+
+p {
+  font-family: Neutrif, Montserrat, sans-serif;
+  margin: 0;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Neutrif;
+  src: url("./assets/fonts/NeutrifPro-Light.otf");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: Neutrif;
+  src: url("./assets/fonts/NeutrifPro-Regular.otf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Neutrif;
+  src: url("./assets/fonts/NeutrifPro-Medium.otf");
+  font-weight: medium;
+}
+
+@font-face {
+  font-family: Neutrif;
+  src: url("./assets/fonts/NeutrifPro-Bold.otf");
+  font-weight: bold;
+}
+
+input,
+select,
+span,
+textarea {
+  font-family: Neutrif, Montserrat, sans-serif;
+}
+
+.app-container {
+  width: 800px;
+  background-color: rgb(230, 230, 230);
+  display: flex;
+}
+
+/* -------start MAIN  */
+
+.mainContent {
+  width: 70%;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  height: 11%;
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  width: 100%;
+  user-select: none;
+  align-items: center;
+  padding-top: 1.8rem;
+}
+.header-text {
+  font-size: 1rem;
+}
+
+.header-button-container {
+}
+.header-button {
+  width: 35px;
+  height: 35px;
+  border-radius: 1px;
+  background-color: rgb(218, 214, 214);
+  margin: 0 0.2ren;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  float: right;
+}
+
+.header-button img {
+  width: 20px;
+  height: 20px;
+}
+.header-button:hover {
+  background-color: rgb(61, 135, 247);
+}
+.header-button:active {
+  background-color: #031b6b;
+}
+
+.main-content-container {
+  display: flex;
+  flex-direction: column;
+  height: 89%;
+  position: relative;
+}
+.msg-viewport {
+  height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: 1px;
+}
+.chat-contact-message {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+.chat-contact-image {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+}
+.chat-contact-message-box,
+.chat-user-message-box {
+  min-height: 50px;
+  max-width: 60%;
+  margin-right: auto;
+  border-radius: 5px;
+  margin-left: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: rgb(196, 234, 187);
+  padding: 5px;
+  margin: 5px;
+  position: relative;
+}
+#timestampe {
+  position: absolute;
+  font-size: 10px;
+  bottom: 0;
+  right: 0;
+}
+.chat-user-message-box {
+  background-color: rgb(164, 194, 249);
+  margin-left: 60%;
+}
+
+.chat-input-container {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+}
+
+.chat-input-message {
+  height: 40px;
+  width: 85%;
+  font-size: 14px;
+  overflow: hidden;
+  border: hidden;
+  background-color: rgb(218, 214, 214);
+}
+button {
+  border: hidden;
+  height: 40px;
+  width: 100px;
+  width: 15%;
+}
+button:hover {
+  background-color: rgb(61, 135, 247);
+}
+/* -------END MAIN  */
+
+/* -------Start sidebar  */
+
+.sidebar-container {
+  user-select: none;
+  background-color: rgb(61, 135, 247);
+  width: 30%;
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.sidebar-inner-container {
+  padding-top: 2rem;
+  padding-left: 2rem;
+  width: 100%;
+  /* background-color: red */
+}
+
+.sidebar-search-field {
+  width: 85%;
+  border-radius: 25px;
+  background-color: #d8dff5;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-size: 0.8rem;
+}
+.sidebar-search-field::placeholder {
+  color: #080808;
+}
+
+.sidebar-contacts {
+  padding-top: 1.5rem;
+}
+
+.contact-card-container {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 0;
+  color: white;
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+.contact-card-container:hover {
+  background-color: #284ab9;
+}
+
+.contact-card-container:active {
+  background-color: #031b6b;
+}
+.contact-card-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.contact-card-header {
+  display: flex;
+  font-size: 0.8em;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.contact-card-inner-container {
+  width: 100%;
+}
+
+.contact-card-message {
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+  cursor: pointer;
+}
