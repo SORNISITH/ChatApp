@@ -43,8 +43,12 @@ const addInput_addButton = () => {
   input.id = "viewInput";
   input.classList.add("chat-input-message");
 
+  input.addEventListener("", (event) => {
+    addUserMessage();
+  });
+
   const button = document.createElement("button");
-  button.textContent = "Send";
+  button.textContent = "";
   button.classList.add("chat-button-send");
   button.id = "mybtn";
   button.addEventListener("click", (event) => {

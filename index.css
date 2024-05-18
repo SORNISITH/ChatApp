@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Siemreap&display=swap");
 :root {
 }
 
@@ -35,9 +36,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  border-radius: 10px;
-  top: 8%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 .nz h1 {
   font-size: 20px;
@@ -111,22 +111,23 @@ textarea {
 }
 
 .chat-header {
+  -webkit-box-shadow: -1px 1px 3px -2px rgba(56, 56, 56, 0.75);
+  -moz-box-shadow: -1px 2px 3px -2px rgba(56, 56, 56, 0.75);
+  box-shadow: -1px 2px 3px -2px rgba(56, 56, 56, 0.75);
   display: flex;
   justify-content: space-between;
-  height: 11%;
+  height: 8%;
   padding: 0.5rem;
   font-size: 0.7rem;
   width: 100%;
   user-select: none;
   align-items: center;
-  padding-top: 1.8rem;
+  background-color: rgb(218, 214, 214);
 }
 .header-text {
   font-size: 1rem;
 }
 
-.header-button-container {
-}
 .header-button {
   width: 35px;
   height: 35px;
@@ -153,7 +154,7 @@ textarea {
 .main-content-container {
   display: flex;
   flex-direction: column;
-  height: 89%;
+  height: 92%;
   position: relative;
 }
 .msg-viewport {
@@ -174,7 +175,7 @@ textarea {
 }
 .chat-contact-message-box,
 .chat-user-message-box {
-  min-height: 50px;
+  min-height: 55px;
   max-width: 60%;
   margin-right: auto;
   border-radius: 5px;
@@ -185,22 +186,30 @@ textarea {
   padding: 5px;
   margin: 5px;
   position: relative;
+  font-family: "Siemreap", sans-serif;
+  -webkit-box-shadow: -1px 1px 3px -2px rgba(56, 56, 56, 0.75);
+  -moz-box-shadow: -1px 2px 3px -2px rgba(56, 56, 56, 0.75);
+  box-shadow: -1px 2px 3px -2px rgba(56, 56, 56, 0.75);
 }
 #timestampe {
   position: absolute;
   font-size: 10px;
   bottom: 0;
   right: 0;
+  color: brown;
+  padding-right: 0.3rem;
 }
 .chat-user-message-box {
   background-color: rgb(164, 194, 249);
-  margin-left: 60%;
+  overflow-wrap: break-word;
+  margin-left: auto;
 }
 
 .chat-input-container {
   position: absolute;
   bottom: 0;
-
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
@@ -211,12 +220,27 @@ textarea {
   overflow: hidden;
   border: hidden;
   background-color: rgb(218, 214, 214);
+  font-family: "Siemreap";
+  text-align: right;
+  border: none;
 }
-button {
+.chat-input-message::placeholder,
+.chat-input-message:focus {
+  text-align: right;
+  font-family: "Siemreap", sans-serif;
+  border: none;
+}
+.chat-button-send {
+  position: absolute;
+  color: #808080;
   border: hidden;
   height: 40px;
   width: 100px;
   width: 15%;
+  background-image: url(/src/icons/send.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #808080;
 }
 button:hover {
   background-color: rgb(61, 135, 247);
@@ -230,8 +254,8 @@ button:hover {
   background-color: rgb(61, 135, 247);
   width: 30%;
   height: 100%;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .sidebar-inner-container {
