@@ -4,7 +4,15 @@ const container = document.createElement("div");
 const msgViewPort = document.createElement("div");
 const addInputButton = document.createElement("div");
 
-const currentChat = contacts[0].id;
+export let globalUser = 0;
+
+export const dynamicViewUser = () => {
+  console.log("x123");
+};
+
+export const currentChat = contacts[globalUser].id;
+export const currentUser = contacts[globalUser].name;
+export const currentImg = contacts[globalUser].imageUrl;
 
 export const createMainContent = () => {
   container.classList.add("main-content-container");
@@ -61,17 +69,15 @@ const addInput_addButton = () => {
 };
 
 const createContactMessage = (message) => {
-  const id = messages.ower;
   const content = message.content;
   const getTime = message.timestamp;
-  const contact = getContact(id);
 
   const container = document.createElement("div");
   container.classList.add("chat-contact-message");
 
   const image = document.createElement("img");
-  image.src = contact.imageUrl;
-  image.alt = contact.name;
+  image.src = currentImg;
+  image.alt = currentUser;
   image.classList.add("chat-contact-image");
   const messageBox = createMessageBox(
     content,
@@ -103,9 +109,6 @@ const createMessageBox = (content, className, getTime) => {
 
   box.appendChild(time);
   return box;
-};
-const getContact = (id) => {
-  return contacts.find(() => contacts.id == id);
 };
 
 export const loadDataMsg = () => {

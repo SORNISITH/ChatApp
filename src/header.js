@@ -1,3 +1,4 @@
+import { currentUser } from "./messages.js";
 const buttons = [
   { src: "/src/icons/phone.svg", alt: "phone" },
   { src: "/src/icons/video.svg", alt: "video" },
@@ -9,7 +10,7 @@ const createHeader = () => {
   header.classList.add("chat-header");
 
   const headerText = document.createElement("h1");
-  headerText.textContent = "Chat with chris";
+  headerText.textContent = `Chat With -${currentUser}-`;
 
   const buttonContainer = document.createElement("div");
   buttonContainer.classList.add("header-button-container");

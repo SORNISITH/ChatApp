@@ -102,12 +102,14 @@ textarea {
   width: 800px;
   background-color: rgb(230, 230, 230);
   display: flex;
+  border-bottom-right-radius: 10px;
 }
 
 /* -------start MAIN  */
 
 .mainContent {
   width: 70%;
+  border-bottom-right-radius: 10px;
 }
 
 .chat-header {
@@ -123,6 +125,7 @@ textarea {
   user-select: none;
   align-items: center;
   background-color: rgb(218, 214, 214);
+  cursor: pointer;
 }
 .header-text {
   font-size: 1rem;
@@ -241,9 +244,14 @@ textarea {
   background-repeat: no-repeat;
   background-position: center;
   background-color: #808080;
+  cursor: pointer;
+  border-bottom-right-radius: 10px;
 }
 button:hover {
   background-color: rgb(61, 135, 247);
+}
+button:active {
+  background-color: rgb(17, 89, 197);
 }
 /* -------END MAIN  */
 
@@ -255,7 +263,6 @@ button:hover {
   width: 30%;
   height: 100%;
   border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 
 .sidebar-inner-container {

@@ -1,6 +1,12 @@
-const createContactCard = (name, inputUrl, message, times = "00:00") => {
+import { dynamicViewUser } from "./messages.js";
+
+const createContactCard = (name, inputUrl, message, times = "00:00", imgID) => {
   const container = document.createElement("div");
   container.classList.add("contact-card-container");
+  container.id = imgID;
+  container.addEventListener("click", () => {
+    dynamicViewUser();
+  });
 
   const image = document.createElement("img");
   image.classList.add("contact-card-image");
@@ -14,7 +20,7 @@ const createContactCard = (name, inputUrl, message, times = "00:00") => {
   header.textContent = name;
 
   const time = document.createElement("p");
-  let timestape = new Date (times);
+  let timestape = new Date(times);
   time.textContent = `${timestape.getHours()} : ${timestape.getMinutes()}`;
 
   const messageContent = document.createElement("p");
