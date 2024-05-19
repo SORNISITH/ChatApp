@@ -1,11 +1,10 @@
 import sidebar from "./sidebar.js";
 import header from "./header.js";
-import {loadDataMsg, createMainContent} from "./messages.js";
-import { contacts, messages } from "./data.js";
-
+import { loadDataMsg, addUserMessage, createMainContent } from "./messages.js";
+import { contacts, messages, user } from "./data.js";
 
 const rootElement = document.querySelector(".chat-app-root");
-
+let globalIndex = 1;
 /***************************************************************
  * AppContainer
  */
@@ -26,42 +25,49 @@ mainContent.classList.add("mainContent");
 mainContent.id = "exportappend";
 
 //Generate APP container child
-mainContent.appendChild(header);
+mainContent.appendChild(header(contacts[globalIndex].name));
 mainContent.appendChild(createMainContent());
+
 appContainer.appendChild(sidebarContainer);
-
 appContainer.appendChild(mainContent);
-
 /***************************************************************
  * init App
  */
 
 rootElement.appendChild(appContainer);
 
-window.addEventListener("load", (event) => {
- 
-  loadDataMsg(contacts[0].id,contacts[0].name,contacts[0].imageUrl);
-  
-});
+/***************************************************************
+ * Event Listener CLICK
+ */
 
-document.getElementById('mybtn').addEventListener("click", (event) => {
-  addUserMessage(messages[0]);
-  
-});
-
-
-
-
-
-
-const loadIdContact = () => {
-  for (let id in contacts){
-
-  }
-
-
-  
+const _loadDataMsg = () => {
+  loadDataMsg(
+    contacts[globalIndex].id,
+    contacts[globalIndex].name,
+    contacts[globalIndex].imageUrl
+  );
+};
+for (let i in contacts) {
+  document.getElementById(contacts[i].id).addEventListener("click", (e) => {
+    globalIndex = i;
+    document.getElementById("msgViewPort").innerHTML = "";
+    _loadDataMsg();
+  });
 }
+window.addEventListener("load", (event) => {
+  _loadDataMsg();
+});
 
+document.getElementById("mybtn").addEventListener("keyup", () => {
+  addUserMessage(contacts[globalIndex].id, contacts[globalIndex].id);
 
+  document.getElementById("viewInput").value = "";
+});
 
+document.getElementById("viewInput").addEventListener("keydown", (e) => {
+  if (e.key == "Enter") {
+    addUserMessage(contacts[globalIndex].id, contacts[globalIndex].id);
+
+    document.getElementById("viewInput").value = "";
+  }
+});

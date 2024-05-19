@@ -125,10 +125,10 @@ export const messages = {
       timestamp: new Date("October 13, 2014 11:13:00"),
       owner: "c1ddecda-3981-11eb-adc1-0242ac120002",
     },
+    {
+      content: "Fine mate, how are you?",
+      timestamp: new Date("October 13, 2014 12:14:00"),
+      owner: "177b547a-3261-11eb-adc1-0242ac120002",
+    },
   ],
 };
-
-
-
-
-

@@ -1,6 +1,5 @@
 import { contacts, messages } from "./data.js";
 import { createContactCard } from "./contact-card.js";
-import { currentUser } from "./messages.js";
 
 /*>--------------------------------------------------------------
  * div.Sidebar container

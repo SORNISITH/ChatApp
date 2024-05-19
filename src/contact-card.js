@@ -1,12 +1,13 @@
-
-
-
-export const createContactCard = (name, inputUrl, message, times = "00:00", imgID) => {
+export const createContactCard = (
+  name,
+  inputUrl,
+  message,
+  times = "00:00",
+  imgID
+) => {
   const container = document.createElement("div");
   container.classList.add("contact-card-container");
   container.id = imgID;
-
-  
 
   const image = document.createElement("img");
   image.classList.add("contact-card-image");
@@ -36,5 +37,3 @@ export const createContactCard = (name, inputUrl, message, times = "00:00", imgI
 
   return container;
 };
-
-
