@@ -4,7 +4,7 @@ import { loadDataMsg, addUserMessage, createMainContent } from "./messages.js";
 import { contacts, messages, user } from "./data.js";
 
 const rootElement = document.querySelector(".chat-app-root");
-let globalIndex = 1;
+let globalIndex = 0;
 /***************************************************************
  * AppContainer
  */
@@ -37,7 +37,7 @@ appContainer.appendChild(mainContent);
 rootElement.appendChild(appContainer);
 
 /***************************************************************
- * Event Listener CLICK
+ * Event Listener
  */
 
 const _loadDataMsg = () => {
@@ -51,6 +51,8 @@ for (let i in contacts) {
   document.getElementById(contacts[i].id).addEventListener("click", (e) => {
     globalIndex = i;
     document.getElementById("msgViewPort").innerHTML = "";
+    document.getElementById("headerText").innerHTML = "";
+    document.getElementById("headerText").innerHTML = `Chat With ${contacts[globalIndex].name}`;
     _loadDataMsg();
   });
 }

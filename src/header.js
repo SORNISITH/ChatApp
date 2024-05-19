@@ -7,8 +7,10 @@ const buttons = [
 const createHeader = (name) => {
   const header = document.createElement("header");
   header.classList.add("chat-header");
+  header.id = 'header-container'
 
   const headerText = document.createElement("h1");
+  headerText.id = 'headerText'
   headerText.textContent = `Chat With -${name}-`;
 
   const buttonContainer = document.createElement("div");

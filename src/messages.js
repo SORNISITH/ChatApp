@@ -13,9 +13,7 @@ const addInputButton = document.createElement("div");
 
 let globalDynamic = 0;
 
-export const currentChat = contacts[globalDynamic].id;
 
-export const currentImg = contacts[globalDynamic].imageUrl;
 
 export const createMainContent = () => {
   container.classList.add("main-content-container");
@@ -34,7 +32,7 @@ export const addUserMessage = (msg, lastIndexArryMsg) => {
   if (viewInputValue == "") {
     return;
   }
-  
+
   const newObjMSG = () => {
     return {
       content: viewInputValue,
