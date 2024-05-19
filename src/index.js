@@ -24,6 +24,18 @@ const mainContent = document.createElement("main");
 mainContent.classList.add("mainContent");
 mainContent.id = "exportappend";
 
+const viewport_child = document.createElement("div");
+viewport_child.id = "welcome-screen";
+const welcomeText = document.createElement("h1");
+welcomeText.textContent = "Welcome to my test App";
+welcomeText.id = "welcometext";
+const welcomeLogo = document.createElement("img");
+welcomeLogo.classList.add("welcomeImg");
+welcomeLogo.src = "/src/pic/Nz.png";
+
+viewport_child.appendChild(welcomeText);
+viewport_child.appendChild(welcomeLogo);
+
 //Generate APP container child
 mainContent.appendChild(header(contacts[globalIndex].name));
 mainContent.appendChild(createMainContent());
@@ -55,16 +67,25 @@ for (let i in contacts) {
     document.getElementById("headerText").innerHTML =
       `Chat With ${contacts[globalIndex].name}`;
     _loadDataMsg();
+    document.getElementById("viewInput").focus();
   });
 }
 window.addEventListener("load", (event) => {
-  _loadDataMsg();
+  document.getElementById("viewInput").focus();
+  document.getElementById("msgViewPort").innerHTML = "";
+  document.getElementById("headerText").innerHTML = " Dynamic ChatApp ";
+  document.getElementById("msgViewPort").appendChild(viewport_child);
 });
 
 document.getElementById("mybtn").addEventListener("click", () => {
   addUserMessage(contacts[globalIndex].id, contacts[globalIndex].id);
 
   document.getElementById("viewInput").value = "";
+  const scrollBtm = (() => {
+    let h = 450;
+    document.getElementById("msgViewPort").scroll(0, h);
+  })();
+  document.getElementById("viewInput").focus();
 });
 
 document.getElementById("viewInput").addEventListener("keydown", (e) => {
@@ -72,5 +93,12 @@ document.getElementById("viewInput").addEventListener("keydown", (e) => {
     addUserMessage(contacts[globalIndex].id, contacts[globalIndex].id);
 
     document.getElementById("viewInput").value = "";
+    document.getElementById("viewInput").focus();
   }
+});
+
+document.getElementById("test").addEventListener("click", () => {
+  document.getElementById("msgViewPort").innerHTML = "";
+  document.getElementById("headerText").innerHTML = " Dynamic ChatApp ";
+  document.getElementById("msgViewPort").appendChild(viewport_child);
 });
