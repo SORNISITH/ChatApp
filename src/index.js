@@ -52,7 +52,8 @@ for (let i in contacts) {
     globalIndex = i;
     document.getElementById("msgViewPort").innerHTML = "";
     document.getElementById("headerText").innerHTML = "";
-    document.getElementById("headerText").innerHTML = `Chat With ${contacts[globalIndex].name}`;
+    document.getElementById("headerText").innerHTML =
+      `Chat With ${contacts[globalIndex].name}`;
     _loadDataMsg();
   });
 }
@@ -60,7 +61,7 @@ window.addEventListener("load", (event) => {
   _loadDataMsg();
 });
 
-document.getElementById("mybtn").addEventListener("keyup", () => {
+document.getElementById("mybtn").addEventListener("click", () => {
   addUserMessage(contacts[globalIndex].id, contacts[globalIndex].id);
 
   document.getElementById("viewInput").value = "";
