@@ -1,6 +1,8 @@
 import sidebar from "./sidebar.js";
 import header from "./header.js";
-import { loadDataMsg, createMainContent } from "./messages.js";
+import {loadDataMsg, createMainContent} from "./messages.js";
+import { contacts, messages } from "./data.js";
+
 
 const rootElement = document.querySelector(".chat-app-root");
 
@@ -35,7 +37,31 @@ appContainer.appendChild(mainContent);
  */
 
 rootElement.appendChild(appContainer);
+
 window.addEventListener("load", (event) => {
-  loadDataMsg();
-  console.log(event);
+ 
+  loadDataMsg(contacts[0].id,contacts[0].name,contacts[0].imageUrl);
+  
 });
+
+document.getElementById('mybtn').addEventListener("click", (event) => {
+  addUserMessage(messages[0]);
+  
+});
+
+
+
+
+
+
+const loadIdContact = () => {
+  for (let id in contacts){
+
+  }
+
+
+  
+}
+
+
+

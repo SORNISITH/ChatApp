@@ -2,17 +2,22 @@ import { user, contacts, messages } from "./data.js";
 
 const container = document.createElement("div");
 const msgViewPort = document.createElement("div");
+msgViewPort.id = "msgViewPort";
 const addInputButton = document.createElement("div");
 
-export let globalUser = 0;
+// document.getElementById('0b03c378-3980-11eb-adc1-0242ac120002').addEventListener("click", () => {
+   
+//       dynamicViewUser();
+//   });
 
-export const dynamicViewUser = () => {
-  console.log("x123");
-};
+let globalDynamic = 0;
 
-export const currentChat = contacts[globalUser].id;
-export const currentUser = contacts[globalUser].name;
-export const currentImg = contacts[globalUser].imageUrl;
+
+
+
+export const currentChat = contacts[globalDynamic].id;
+export const currentUser = contacts[globalDynamic].name;
+export const currentImg = contacts[globalDynamic].imageUrl;
 
 export const createMainContent = () => {
   container.classList.add("main-content-container");
@@ -21,7 +26,7 @@ export const createMainContent = () => {
   container.appendChild(addInput_addButton());
   return container;
 };
-const addUserMessage = () => {
+const addUserMessage = (msg) => {
   const getValueInput = document.getElementById("viewInput");
   const viewInputValue = getValueInput.value;
   const storeTime = new Date();
@@ -37,38 +42,34 @@ const addUserMessage = () => {
       owner: ownerMsg,
     };
   };
-  messages[currentChat].push(newObjMSG());
+  messages[msg].push(newObjMSG());
 
   loadLastMsg();
-  console.log(messages[currentChat]);
+ 
 };
 
 const addInput_addButton = () => {
   const input = document.createElement("input");
   addInputButton.classList.add("chat-input-container");
-  input.placeholder = "   Write your message here!";
+  input.placeholder = "    message here!     ";
   input.name = "chat-message";
   input.id = "viewInput";
   input.classList.add("chat-input-message");
 
-  input.addEventListener("", (event) => {
-    addUserMessage();
-  });
+  
 
   const button = document.createElement("button");
   button.textContent = "";
   button.classList.add("chat-button-send");
   button.id = "mybtn";
-  button.addEventListener("click", (event) => {
-    addUserMessage();
-  });
+  
 
   addInputButton.appendChild(input);
   addInputButton.appendChild(button);
   return addInputButton;
 };
 
-const createContactMessage = (message) => {
+const createContactMessage = (message,user,img) => {
   const content = message.content;
   const getTime = message.timestamp;
 
@@ -76,8 +77,8 @@ const createContactMessage = (message) => {
   container.classList.add("chat-contact-message");
 
   const image = document.createElement("img");
-  image.src = currentImg;
-  image.alt = currentUser;
+  image.src = img;
+  image.alt = user;
   image.classList.add("chat-contact-image");
   const messageBox = createMessageBox(
     content,
@@ -111,17 +112,17 @@ const createMessageBox = (content, className, getTime) => {
   return box;
 };
 
-export const loadDataMsg = () => {
-  const loading = messages[currentChat];
+export const loadDataMsg = (id,user,imgurl) => {
+  const loading = messages[id];
   loading.forEach((message) => {
     let eachMessage;
     if (message.owner == currentChat) {
-      eachMessage = createContactMessage(message);
+      eachMessage = createContactMessage(message,user,imgurl);
     } else {
       eachMessage = createUserMessage(message);
     }
 
-    msgViewPort.appendChild(eachMessage);
+    document.getElementById('msgViewPort').appendChild(eachMessage);
   });
 };
 

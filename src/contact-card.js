@@ -1,12 +1,12 @@
-import { dynamicViewUser } from "./messages.js";
 
-const createContactCard = (name, inputUrl, message, times = "00:00", imgID) => {
+
+
+export const createContactCard = (name, inputUrl, message, times = "00:00", imgID) => {
   const container = document.createElement("div");
   container.classList.add("contact-card-container");
   container.id = imgID;
-  container.addEventListener("click", () => {
-    dynamicViewUser();
-  });
+
+  
 
   const image = document.createElement("img");
   image.classList.add("contact-card-image");
@@ -37,4 +37,4 @@ const createContactCard = (name, inputUrl, message, times = "00:00", imgID) => {
   return container;
 };
 
-export default createContactCard;
+
