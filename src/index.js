@@ -68,6 +68,10 @@ for (let i in contacts) {
       `Chat With ${contacts[globalIndex].name}`;
     _loadDataMsg();
     document.getElementById("viewInput").focus();
+    const scrollBtm = (() => {
+      let h = document.getElementById("msgViewPort").scrollHeight;
+      document.getElementById("msgViewPort").scroll(0, (h += h));
+    })();
   });
 }
 window.addEventListener("load", (event) => {
@@ -82,16 +86,20 @@ document.getElementById("mybtn").addEventListener("click", () => {
 
   document.getElementById("viewInput").value = "";
   const scrollBtm = (() => {
-    let h = 450;
-    document.getElementById("msgViewPort").scroll(0, h);
+    let h = document.getElementById("msgViewPort").scrollHeight;
+    document.getElementById("msgViewPort").scroll(0, (h += h));
   })();
+
   document.getElementById("viewInput").focus();
 });
 
 document.getElementById("viewInput").addEventListener("keydown", (e) => {
   if (e.key == "Enter") {
     addUserMessage(contacts[globalIndex].id, contacts[globalIndex].id);
-
+    const scrollBtm = (() => {
+      let h = document.getElementById("msgViewPort").scrollHeight;
+      document.getElementById("msgViewPort").scroll(0, (h += h));
+    })();
     document.getElementById("viewInput").value = "";
     document.getElementById("viewInput").focus();
   }

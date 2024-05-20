@@ -13,8 +13,6 @@ const addInputButton = document.createElement("div");
 
 let globalDynamic = 0;
 
-
-
 export const createMainContent = () => {
   container.classList.add("main-content-container");
   msgViewPort.classList.add("msg-viewport");
@@ -130,5 +128,5 @@ const loadLastMsg = (lastIndexArryMsg) => {
 };
 
 // document.getElementById("mybtn").addEventListener("click", () => {
-//   localStorage();
+//
 // });
